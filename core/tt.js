@@ -104,6 +104,10 @@ tt._getDependencies = function(temp){
 }
 tt.loadDependencies = function(dependencies, index, moduleName, jsList, cb, defaultDir){
     var moduleDir = defaultDir ? defaultDir : tt._modulesDir + moduleName + "/";
+    if(tt._moduleCache[moduleName]){
+        if(cb) cb();
+        return;
+    }
     if(index >= dependencies.length || !dependencies[index]) {
         console.log(moduleDir);
         tt.loadJs(moduleDir, jsList, function(){
@@ -127,21 +131,6 @@ tt.loadDependencies = function(dependencies, index, moduleName, jsList, cb, defa
         }
     });
 };
-tt._loadPackage = function(moduleDir, moduleName, cb){
-    tt.loadJson(moduleDir + moduleName + "/package.json", function(err, data){
-        if(err){
-            console.error(err);
-            console.error("Please install the module [" + moduleName + "] first!");
-        }else{
-            tt._packageCache[moduleName] = true;
-            console.log(data);
-            var jsList = data.jsList;
-            tt.loadJs("core/", jsList, function(){
-                if(cb) cb();
-            })
-        }
-    });
-}
 
 /**
  * Desc: put src (Array) into target (Array) from startIndex to endIndex.
