@@ -1,3 +1,1 @@
-/**
- * Created by small on 13-11-4.
- */
+alert(m2_02);

@@ -1,3 +1,12 @@
-/**
- * Created by small on 13-11-4.
- */
+{
+    "name" : "core",
+    "version" : "1.0.0",
+    "dependencies" : {
+
+    },
+    "jsList" : [
+        "log4tt.js",
+        "res4tt.js",
+        "unit4tt.js"
+    ]
+}

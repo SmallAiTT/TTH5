@@ -1,12 +1,12 @@
 {
-    "name" : "core",
+    "name" : "MyTest",
     "version" : "1.0.0",
+    "ttDir" : "./",
     "dependencies" : {
-
+        "m2" : "1.0",
+        "m1" : "1.0"
     },
     "jsList" : [
-        "log4tt.js",
-        "res4tt.js",
-        "unit4tt.js"
+        "g.js"
     ]
 }

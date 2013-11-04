@@ -1,12 +1,10 @@
 {
-    "name" : "core",
+    "name" : "m1",
     "version" : "1.0.0",
     "dependencies" : {
-
     },
     "jsList" : [
-        "log4tt.js",
-        "res4tt.js",
-        "unit4tt.js"
+        "m1_01.js",
+        "m1_02.js"
     ]
 }
