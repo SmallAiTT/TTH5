@@ -1,0 +1,11 @@
+{
+    "name" : "m1",
+    "version" : "1.0.0",
+    "dependencies" : {
+
+    },
+    "jsList" : [
+        "m1_01.js",
+        "m1_02.js"
+    ]
+}
