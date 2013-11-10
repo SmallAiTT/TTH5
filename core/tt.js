@@ -76,20 +76,29 @@ tt._loadJsArr = function(baseDir, jsList, index, cb){
 tt._ttDir = "";
 tt._modulesDir = "";
 tt._moduleCache = {};
+tt._projDir = "";
 tt.loadGame = function(cb){
-    tt.loadJson("package.json", function(err, data){
+    tt.loadJson("boot.json", function(err, data){
         if(err){
             console.error(err);
         }else{
             tt._ttDir = data.ttDir;
             tt._modulesDir = tt._ttDir + "modules/";
+            tt._projDir = data.projDir;
+            tt.loadBoot(cb);
+        }
+    });
+};
+tt.loadBoot = function(cb){
+    tt.loadJson(tt._projDir + "/package.json", function(err, data){
+        if(err){
+            console.error(err);
+        }else{
             var dependencies = tt._getDependencies(data.dependencies);
             var jsList = data.jsList;
             tt.loadJson(tt._ttDir + "core" + "/package.json", function(err, data2){
                 tt.loadDependencies(tt._getDependencies(data2.dependencies), 0, "", data2.jsList, function(){
-                    tt.loadDependencies(dependencies, 0, "", jsList, function(){
-                        console.log("success!")
-                    }, "./");
+                    tt.loadDependencies(dependencies, 0, "", jsList, cb, tt._projDir);
                 }, tt._ttDir + "core/");
             });
         }

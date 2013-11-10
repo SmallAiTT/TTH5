@@ -91,7 +91,7 @@ tt.testCCBI = function(cfgName){
  */
 tt.test = function(cfgName){
     var cfg = ResCfg[cfgName];
-    if(!cfg) throw "Please config the info of [" + cfgName + "] in ResCfg.js first!"
+    if(!cfg) throw "Please config the info of [" + cfgName + "] in resCfg.js first!"
     if(cfg.scene){
         tt.testScene(cfgName);
     }else if(cfg.layer){

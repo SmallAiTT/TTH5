@@ -1,0 +1,12 @@
+{
+    "name" : "MyGameModule",
+    "version" : "1.0.0",
+    "dependencies" : {
+        "m2" : "1.0",
+        "m1" : "1.0"
+    },
+    "jsList" : [
+        "cfg/res.js",
+        "cfg/resCfg.js"
+    ]
+}
